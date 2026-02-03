@@ -1,48 +1,63 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Register</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
+
+
+
+
 <body>
 
 <div class="container">
-  
     <div id="loginForm">
         <h2>Login</h2>
         <div class="input-group">
             <input type="email" id="loginEmail" placeholder="Email">
         </div>
         <div id="loginEmailFeedback" class="email-feedback" aria-live="polite"></div>
+
+
+
+
         
         <div class="password-box">
             <div class="password-wrapper">
                 <input type="password" id="loginPassword" placeholder="Password">
                 <i class="bi bi-eye" onclick="togglePassword('loginPassword', this)"></i>
             </div>
-            <div class="forgot-password">
-                <a href="#" onclick="showForgot()">Forgot Password?</a>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                    <label class="form-check-label small" for="rememberMe">Remember Me</label>
+                </div>
+                <a href="#" onclick="showForgot()" class="small text-decoration-none">Forgot Password?</a>
             </div>
         </div>
         <button onclick="login()">Login</button>
         <p class="toggle" onclick="showRegister()">Don't have an account? Register</p> 
     </div>
+
+
+
+
     
-    
-
-
-
-
-
-    <div id="registerForm" class=" hidden">
+    <div id="registerForm" class="hidden">
         <h2>Register</h2>
         <div class="input-group">
             <input type="email" id="registerEmail" placeholder="Email">
         </div>
         <div id="registerEmailFeedback" class="email-feedback" aria-live="polite"></div>
+
+
+        
         
         <div class="password-box">
             <div class="password-wrapper">
@@ -53,54 +68,25 @@
         <button onclick="register()">Register</button>
         <p class="toggle" onclick="showLogin()">Already have an account? Login</p>  
     </div>
-</div>
-    
+
+
+
 
 
 
 
     <div id="forgotForm" class="hidden">
         <h2>Forgot Password</h2>
-        <div class="input-group">
-            <input type="email" id="forgotEmail" placeholder="Email">
+        <div class="input-group mb-2">
+            <input type="email" id="forgotEmail" placeholder="Enter Registered Email">
         </div>
         <div id="forgotEmailFeedback" class="email-feedback" aria-live="polite"></div>
-        
-        <div class="input-group">
-            <input type="tel" id="forgotMobile" placeholder="Mobile Number">
-        </div>
-        <div id="forgotMobileFeedback" class="email-feedback" aria-live="polite"></div>
         
         <button onclick="submitForgot()">Submit</button>
         <p class="toggle" onclick="showLogin()">Back to Login</p>
     </div>
 </div>
 
-
-
-
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-

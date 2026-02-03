@@ -1,93 +1,76 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+
+
+<body class="dashboard-body">
 
 <div class="dashboard-container">
-   
-    <div class="dashboard-header">
+    <div class="dashboard-header text-center mb-4">
         <div class="user-info">
-            <h2>Welcome, <span id="userEmailDisplay"></span></h2>
-            <p id="emailValidation" class="feedback" aria-live="polite"></p>
+            <h2>Welcome, <span id="userEmailDisplay">User</span></h2>
+            <p id="emailStatus" class="small"></p>
         </div>
     </div>
 
-    
 
 
-    <div class="dashboard-content">
-        <div class="product-card">
-            <div class="card">
-                
-    <div class="flex-container">
-    <div class="card" style="width: 18rem;">
-                <img src="./laptop.jpg" class="card-img-top" alt="laptop">
-                <div class="card-body">
-                    <h3 class="card-title">Buy Laptop</h3>
-                    <p class="card-text">This is the best laptop. I need at least a Core i7 processor, 16GB RAM, and 512GB SSD. Must have decent battery health (above 80%) and come with the original charger.</p>
-                    <a href="#" class="btn btn-primary">Buy Now</a>
-                </div>
+    <div class="dashboard-content d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img src="laptop.jpg" class="card-img-top" alt="laptop">
+            <div class="card-body text-center">
+                <h3 class="card-title">Buy Laptop</h3>
+                <p class="card-text">Core i7, 16GB RAM, 512GB SSD/Windows 11 Home 15ITL^ Laptop (15.6 Inch,Grey,With MS Office)
+                  <p class="card-text text-danger fw-bold"></p>$45,450</p>
+                </p>
+                <a href="#" class="btn btn-primary w-100">Buy Now</a>
             </div>
         </div>
     </div>
 
-   
 
 
 
 
-    <div class="dashboard-footer">
-        <button onclick="logout()" class="logout-btn">
+    <div class="dashboard-footer mt-4 text-center">
+        <button onclick="logout()" class="btn btn-danger">
             <i class="bi bi-box-arrow-right"></i> Logout
         </button>
     </div>
 </div>
 
+
+
+
+
+
 <script>
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
-    if (!loggedInUser || !loggedInUser.loggedIn) {
+    if (!loggedInUser) {
         window.location.href = "index.html";
-    }
-
-    const userEmail = loggedInUser.user.email;
-    document.getElementById("userEmailDisplay").innerText = userEmail;
-
-    function isValidEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-
-    const emailValidationEl = document.getElementById('emailValidation');
-    if (isValidEmail(userEmail)) {
-        emailValidationEl.textContent = ' Your email is valid';
-        emailValidationEl.className = 'feedback valid';
     } else {
-        emailValidationEl.textContent = ' Your email is not valid';
-        emailValidationEl.className = 'feedback invalid';
+        const userEmail = loggedInUser.user.email;
+        document.getElementById("userEmailDisplay").innerText = userEmail;
+        document.getElementById("emailStatus").innerText = "Logged in successfully";
+        document.getElementById("emailStatus").style.color = "green";
     }
 
     function logout() {
         localStorage.removeItem("loggedInUser");
         window.location.href = "index.html";
     }
-</script>
-
+</script>     
 </body>
 </html>
-
-
-
 
 
 
